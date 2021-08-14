@@ -1,29 +1,28 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import {
+    BrowserRouter as Router,
+    Route,
+    Switch
+} from 'react-router-dom';
 
-const BASE_URL = 'http://localhost:1234';
+import Home from './components/Home';
+import Login from './components/Login';
 
-const user = {
-    username: 'hwalborn',
-    password: 'Password123!!!'
-};
-
+//http://localhost:3000/ -> Home Component
+//http://localhost:3000/login -> Login Component
 const App = () => {
-    async function getToken() {
-        const response = await fetch(`${BASE_URL}/login`, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(user)
-        });
-        const data = await response.json();
-        console.log(data);
-    }
-    getToken();
     return (
-        <p>hi holt</p>
+        <>
+            <Switch>
+                <Route path="/login"><Login /></Route>
+                <Route path="/"><Home /></Route>
+            </Switch>
+        </>
     )
 };
 
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(
+    <Router><App /></Router>,
+    document.getElementById('root')
+);
