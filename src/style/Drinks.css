@@ -1,0 +1,22 @@
+#drink-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#drink-container .drink {
+    width: 45%;
+    margin: 25px;
+    text-align: center;
+    display: grid;
+    grid-template-rows: 2em 1fr;
+    grid-template-columns: repeat(2, 1fr);
+    border-radius: 25px;
+    border: 1px solid black;
+}
+
+#drink-container .drink h4 {
+    grid-column: span 2;
+    background-color: rgb(195, 195, 195);
+    margin: 0;
+    border-radius: 25px 25px 0px 0px;
+}

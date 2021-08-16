@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
+import API from '../utilities/api';
+
 /**
  * A form that has a username and password input and a button
  * OnSubmit we want to make a POST request to the login endpoint
@@ -8,23 +10,15 @@ import { Link } from 'react-router-dom';
  * error handling -> catch and alert the error
  */
 
-const Login = () => {
-
-    const BASE_URL = 'http://localhost:1234';
+const Login = ({setToken}) => {
 
     const [user, setUser] = useState({username: '', password: ''});
 
     async function storeToken() {
         try {
-            const response = await fetch(`${BASE_URL}/login`, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(user)
-            });
-            const data = await response.json();
+            const data = await API.makeRequest('/login', 'POST', user);
             localStorage.setItem('vb-token', data.token);
+            setToken(data.token);
         } catch (error) {
             alert(error);
         }
