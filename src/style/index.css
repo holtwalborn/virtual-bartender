@@ -1,0 +1,7 @@
+main {
+    width: 95vw;
+    height: 90vh;
+    margin: 5% auto;
+    background-color: white;
+    border: 1px solid black;
+}

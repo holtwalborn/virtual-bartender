@@ -11,6 +11,8 @@ import Header from './Header';
 import TokenUtilities from '../utilities/token';
 import Drinks from './Drinks';
 
+import '../style/index.css';
+
 //http://localhost:3000/ -> Home Component
 //http://localhost:3000/login -> Login Component
 const App = () => {
@@ -24,11 +26,13 @@ const App = () => {
     return (
         <>
             <Header isLoggedIn={isLoggedIn} setToken={setToken} />
-            <Switch>
-                <Route path="/drinks"><Drinks /></Route>
-                <Route path="/login"><Login setToken={setToken} /></Route>
-                <Route path="/"><Home /></Route>
-            </Switch>
+            <main>
+                <Switch>
+                    <Route path="/drinks"><Drinks /></Route>
+                    <Route path="/login"><Login setToken={setToken} /></Route>
+                    <Route path="/"><Home /></Route>
+                </Switch>
+            </main>
         </>
     )
 };

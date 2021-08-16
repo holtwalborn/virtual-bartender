@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 
 import API from '../utilities/api';
 
@@ -12,6 +12,8 @@ import API from '../utilities/api';
 
 const Login = ({setToken}) => {
 
+    let history = useHistory();
+
     const [user, setUser] = useState({username: '', password: ''});
 
     async function storeToken() {
@@ -19,6 +21,7 @@ const Login = ({setToken}) => {
             const data = await API.makeRequest('/login', 'POST', user);
             localStorage.setItem('vb-token', data.token);
             setToken(data.token);
+            history.push('/');
         } catch (error) {
             alert(error);
         }

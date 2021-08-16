@@ -15,7 +15,9 @@ const Header = ({isLoggedIn, setToken}) => {
 
     return (
         <header>
-            <h3>Virtual Bartender</h3>
+            <Link to="/">
+                <h3>Virtual Bartender</h3>
+            </Link>
             {
                 isLoggedIn ? 
                     <>
