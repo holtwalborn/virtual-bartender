@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 
 import API from '../utilities/api';
+import TokenUtilities from '../utilities/token';
 
 /**
  * A form that has a username and password input and a button
@@ -18,12 +19,20 @@ const Login = ({setToken}) => {
 
     async function storeToken() {
         try {
+            // fetch('localhost:1234/login', {
+            //     headers: {
+            //         authorization: 'Bearer <TOKEN>',
+            //         'Content-Type': 'application/json'
+            //     },
+            //     body: JSON.stringify(user)
+            // })
             const data = await API.makeRequest('/login', 'POST', user);
-            localStorage.setItem('vb-token', data.token);
+            TokenUtilities.setToken(data.token);
             setToken(data.token);
-            history.push('/');
         } catch (error) {
             alert(error);
+        } finally {
+            history.push('/');
         }
     }
 

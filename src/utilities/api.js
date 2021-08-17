@@ -1,4 +1,4 @@
-const BASE_URL = 'http://localhost:1234';
+const BASE_URL = 'http://localhost:8080';
 
 import TokenUtilities from './token';
 
