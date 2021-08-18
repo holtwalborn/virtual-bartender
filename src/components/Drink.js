@@ -3,9 +3,19 @@ import React from 'react';
 const Drink = ({name, amount, type}) => {
     return (
         <div className="drink">
-            <h4>{name}</h4>
-            <p>amount: {amount}</p>
-            <p>type: {type}</p>
+            <div>
+                <p>name: {name}</p>
+                <p>amount: {amount}</p>
+                <p>type: {type}</p>
+            </div>
+            <div className="actions-container">
+                <>
+                    <button>Add More</button>
+                    <input type="number" />
+                </>
+                <button>Use</button>
+
+            </div>
         </div>
     )
 }
