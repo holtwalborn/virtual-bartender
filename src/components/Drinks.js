@@ -19,9 +19,22 @@ const Drinks = () => {
         }
     }, []);
 
-    const drinkElements = drinkList.map(drink => <Drink name={drink.name}
+    function updateDrinkList(amount, id) {
+        const newList = drinkList.map(drink => {
+            if(drink.id === id) {
+                drink.amount = amount;
+            }
+            return drink;
+        });
+        setDrinkList(newList);
+    }
+
+    const drinkElements = drinkList.map((drink, i) => <Drink name={drink.name}
                                                         amount={drink.amount}
-                                                        type={drink.type} />);
+                                                        type={drink.type}
+                                                        id={drink.id}
+                                                        key={`drink-${i}`}
+                                                        updateDrinkList={updateDrinkList} />);
 
     return (
         <div id="drink-container">
