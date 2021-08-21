@@ -1,0 +1,22 @@
+#drink-form-container form {
+    display: flex;
+    flex-wrap: wrap;
+    height: 100%;
+    padding: 25px;
+    justify-content: center;
+}
+
+#drink-form-container form div{
+    width: 100%;
+    margin: 25px 0;
+    display: grid;
+    grid-template-columns: 33% 1fr;
+}
+
+#drink-form-container form div input {
+    height: 25%;
+}
+
+#drink-form-container form div button {
+    height: 25%;
+}

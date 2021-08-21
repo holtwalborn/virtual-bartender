@@ -10,6 +10,7 @@ import Header from './Header';
 
 import TokenUtilities from '../utilities/token';
 import Drinks from './Drinks';
+import AddDrink from './AddDrink';
 
 import '../style/index.css';
 
@@ -28,6 +29,7 @@ const App = () => {
             <Header isLoggedIn={isLoggedIn} setToken={setToken} />
             <main>
                 <Switch>
+                    <Route path="/drinks/add"><AddDrink /></Route>
                     <Route path="/drinks"><Drinks /></Route>
                     <Route path="/login"><Login setToken={setToken} /></Route>
                     <Route path="/"><Home /></Route>
