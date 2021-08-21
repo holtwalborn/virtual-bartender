@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useHistory, userHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 
 import API from '../utilities/api';
 
